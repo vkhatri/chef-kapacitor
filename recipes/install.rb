@@ -40,6 +40,6 @@ when 'rhel'
 end
 
 package 'kapacitor' do
-  version if node['kapacitor']['version']
+  version node['kapacitor']['version'] if node['kapacitor']['version']
   notifies :restart, 'service[kapacitor]' if node['kapacitor']['notify_restart'] && !node['kapacitor']['disable_service']
 end
