@@ -24,6 +24,6 @@ default['kapacitor']['yum']['action'] = :create
 default['kapacitor']['apt']['uri'] = 'https://repos.influxdata.com/debian'
 default['kapacitor']['apt']['description'] = 'InfluxDB Repository'
 default['kapacitor']['apt']['components'] = %w(stable)
-# default['kapacitor']['apt']['distribution'] = ''
+default['kapacitor']['apt']['distribution'] = node['lsb']['codename']
 default['kapacitor']['apt']['action'] = :add
 default['kapacitor']['apt']['key'] = 'https://repos.influxdata.com/influxdb.key'

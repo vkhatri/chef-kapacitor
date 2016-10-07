@@ -20,6 +20,9 @@
 case node['platform_family']
 when 'debian'
   # apt repository configuration
+  package 'apt-transport-https' do
+    action :install
+  end
   apt_repository 'influxdb' do
     uri node['kapacitor']['apt']['uri']
     components node['kapacitor']['apt']['components']
