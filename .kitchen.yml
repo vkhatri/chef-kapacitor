@@ -1,0 +1,30 @@
+---
+driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: 12.4.1
+  network:
+    - ["forwarded_port", {guest: 8080, host: 8080, auto_correct: true}]
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-14.04
+    driver_config:
+      image_ref: Ubuntu 14.04 Trusty (x86_64)
+      flavor_ref: SSD.30
+    run_list:
+      - recipe[apt]
+
+suites:
+- name: default
+  run_list:
+    - 'recipe[influxdb]'
+    - 'recipe[kapacitor-test]'
+    - 'recipe[curl]'
+  attributes:
+    kapacitor:
+      config:
+        hostname: localhost
+    influxdb:
+      version: '1.0.2-1'
