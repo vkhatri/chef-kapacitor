@@ -27,4 +27,4 @@ suites:
       config:
         hostname: localhost
     influxdb:
-      version: '1.0.2-1'
+      version: '1.2.4-1'

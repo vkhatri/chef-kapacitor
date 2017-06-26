@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-require 'toml'
+require 'toml-rb'
 
 [node['kapacitor']['data_dir'],
  node['kapacitor']['log_dir']].each do |d|
@@ -29,6 +29,6 @@ require 'toml'
 end
 
 file node['kapacitor']['conf_file'] do
-  content TOML.dump(node['kapacitor']['config'])
+  content TomlRB.dump(node['kapacitor']['config'])
   notifies :restart, 'service[kapacitor]' if node['kapacitor']['notify_restart'] && !node['kapacitor']['disable_service']
 end
