@@ -21,9 +21,8 @@ default['kapacitor']['yum']['enabled'] = true
 default['kapacitor']['yum']['gpgkey'] = 'https://repos.influxdata.com/influxdb.key'
 default['kapacitor']['yum']['action'] = :create
 
-default['kapacitor']['apt']['uri'] = 'https://repos.influxdata.com/debian'
+default['kapacitor']['apt']['uri'] = "https://repos.influxdata.com/#{node['platform']}"
 default['kapacitor']['apt']['description'] = 'InfluxDB Repository'
 default['kapacitor']['apt']['components'] = %w(stable)
-# default['kapacitor']['apt']['distribution'] = ''
 default['kapacitor']['apt']['action'] = :add
 default['kapacitor']['apt']['key'] = 'https://repos.influxdata.com/influxdb.key'
