@@ -47,10 +47,14 @@ end
 if Chef::Resource::ChefGem.method_defined?(:compile_time)
   chef_gem 'toml-rb' do
     compile_time true
+    clear_sources true
+    version '~> 0.3.0'
   end
 else
   chef_gem 'toml-rb' do
     action :nothing
+    clear_sources true
+    version '~> 0.3.0'
   end.run_action(:install)
 end
 

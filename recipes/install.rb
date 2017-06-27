@@ -24,7 +24,7 @@ when 'debian'
     uri node['kapacitor']['apt']['uri']
     components node['kapacitor']['apt']['components']
     key node['kapacitor']['apt']['key']
-    distribution node['kapacitor']['apt']['distribution']
+    distribution node['lsb']['codename']
     action node['kapacitor']['apt']['action']
   end
 when 'rhel'
