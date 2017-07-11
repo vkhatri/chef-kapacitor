@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the kapacitor cookbook.
 
+0.0.3
+-----
+- Cyberfl - add kapacitor_handler resource
+
 0.0.1
 -----
 
