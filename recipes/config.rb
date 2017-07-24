@@ -17,7 +17,11 @@
 # limitations under the License.
 #
 
-require 'toml-rb'
+chef_gem 'toml' do
+  version node['kapacitor']['toml_gem_version']
+end
+
+require 'toml'
 
 [node['kapacitor']['data_dir'],
  node['kapacitor']['log_dir']].each do |d|
@@ -29,6 +33,6 @@ require 'toml-rb'
 end
 
 file node['kapacitor']['conf_file'] do
-  content TomlRB.dump(node['kapacitor']['config'])
+  content TOML::Generator.new(node['kapacitor']['config']).body
   notifies :restart, 'service[kapacitor]' if node['kapacitor']['notify_restart'] && !node['kapacitor']['disable_service']
 end
