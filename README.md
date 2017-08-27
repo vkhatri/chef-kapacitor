@@ -1,12 +1,10 @@
 kapacitor Cookbook
 ================
 
-[![Cookbook](http://img.shields.io/badge/cookbook-v0.0.1-green.svg)](https://github.com/vkhatri/chef-kapacitor)
-
-[![wercker status](https://app.wercker.com/status/4db502d59b112195391912b4679eee7d/m "wercker status")](https://app.wercker.com/project/bykey/4db502d59b112195391912b4679eee7d)
+[![Cookbook](https://img.shields.io/github/tag/vkhatri/chef-kapacitor.svg)](https://github.com/vkhatri/chef-kapacitor) [![Build Status](https://travis-ci.org/vkhatri/chef-kapacitor.svg?branch=master)](https://travis-ci.org/vkhatri/chef-kapacitor)
 
 
-This is a [Chef] cookbook to manage [InfluxDB] [Kapacitor].
+This is a [Chef] cookbook to manage [InfluxData] [Kapacitor].
 
 
 >> For Production environment, always prefer the [most recent release](https://supermarket.chef.io/cookbooks/kapacitor).
@@ -61,7 +59,11 @@ None
 ## Core Attributes
 
 
-* `default['kapacitor']['version']` (default: `nil`): kapacitor version, default install latest
+* `default['kapacitor']['version']` (default: `1.3.3`): kapacitor version, default install latest
+
+* `default['kapacitor']['ignore_version']` (default: `false`): ignore kapacitor version pin
+
+* `default['kapacitor']['setup_repository']` (default: `true`): setup influxdata repository
 
 * `default['kapacitor']['conf_dir']` (default: `/etc/kapacitor`): kapacitor toml configuration file directory
 
@@ -143,5 +145,5 @@ limitations under the License.
 
 [Chef]: https://www.chef.io/
 [Kapacitor]: https://docs.influxdata.com/kapacitor
-[InfluxDB]: https://influxdata.com/
+[InfluxData]: https://influxdata.com/
 [Contributors]: https://github.com/vkhatri/chef-kapacitor/graphs/contributors

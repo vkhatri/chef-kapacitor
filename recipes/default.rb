@@ -54,6 +54,7 @@ else
   end.run_action(:install)
 end
 
+include_recipe 'yum-plugin-versionlock::default' if %w[rhel amazon].include?(node['platform_family'])
 include_recipe 'kapacitor::install'
 include_recipe 'kapacitor::config'
 include_recipe 'kapacitor::service'
