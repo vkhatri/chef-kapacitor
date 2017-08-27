@@ -37,7 +37,7 @@ when 'debian'
       end
     end
   end
-when 'rhel'
+when 'rhel', 'amazon'
   if node['kapacitor']['setup_repository']
     yum_repository 'influxdb' do
       description node['kapacitor']['yum']['description']
