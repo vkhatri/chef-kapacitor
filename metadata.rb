@@ -12,3 +12,5 @@ issues_url 'https://github.com/vkhatri/chef-kapacitor/issues' if respond_to?(:is
 %w(ubuntu centos amazon redhat fedora).each do |os|
   supports os
 end
+
+depends 'compat_resource'
