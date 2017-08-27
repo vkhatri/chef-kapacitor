@@ -16,8 +16,8 @@ default['kapacitor']['conf_file'] = ::File.join(node['kapacitor']['conf_dir'], '
 default['kapacitor']['setup_repository'] = true
 
 default['kapacitor']['yum']['baseurl'] = value_for_platform(
-  %w(amazon) => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' },
-  %w(centos redhat fedora) => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' }
+  %w[amazon] => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' },
+  %w[centos redhat fedora] => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' }
 )
 default['kapacitor']['yum']['description'] = 'InfluxDB Repository - RHEL $releasever'
 default['kapacitor']['yum']['gpgcheck'] = true
@@ -25,9 +25,9 @@ default['kapacitor']['yum']['enabled'] = true
 default['kapacitor']['yum']['gpgkey'] = 'https://repos.influxdata.com/influxdb.key'
 default['kapacitor']['yum']['action'] = :create
 
-default['kapacitor']['apt']['uri'] = "https://repos.influxdata.com/debian"
+default['kapacitor']['apt']['uri'] = 'https://repos.influxdata.com/debian'
 default['kapacitor']['apt']['description'] = 'InfluxDB Repository'
-default['kapacitor']['apt']['components'] = %w(stable)
+default['kapacitor']['apt']['components'] = %w[stable]
 default['kapacitor']['apt']['distribution'] = node['lsb']['codename']
 default['kapacitor']['apt']['action'] = :add
 default['kapacitor']['apt']['key'] = 'https://repos.influxdata.com/influxdb.key'

@@ -24,7 +24,7 @@ ruby_block 'delay kapacitor service start' do
   not_if { node['kapacitor']['disable_service'] }
 end
 
-service_action = node['kapacitor']['disable_service'] ? [:disable, :stop] : [:enable, :nothing]
+service_action = node['kapacitor']['disable_service'] ? %i[disable stop] : %i[enable nothing]
 
 service 'kapacitor' do
   supports :status => true, :restart => true
