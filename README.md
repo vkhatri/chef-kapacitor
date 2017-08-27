@@ -30,14 +30,14 @@ https://github.com/vkhatri/chef-kapacitor
 
 ## Supported OS
 
-This cookbook was tested on Amazon & Ubuntu Linux and expected to work on other RHEL platforms.
-
-
+- Amazon
+- CentOS
+- Ubuntu
 
 ## Cookbook Dependency
 
-None
-
+- apt
+- yum-plugin-versionlock
 
 ## Recipes
 
@@ -47,19 +47,11 @@ None
 
 - `kapacitor::config` - configure kapacitor
 
-- `kapacitor::inputs` - configure kapacitor inputs using node attribute `node['kapacitor']['inputs']`
-
-- `kapacitor::outputs` - configure kapacitor outputs using node attribute `node['kapacitor']['outputs']`
-
 - `kapacitor::service` - configure kapacitor service
-
-- `kapacitor::example` - examples recipe to configure default inputs/outputs using HWRP
-
 
 ## Core Attributes
 
-
-* `default['kapacitor']['version']` (default: `1.3.3`): kapacitor version, default install latest
+* `default['kapacitor']['version']` (default: `1.3.2`): kapacitor version, default install latest
 
 * `default['kapacitor']['ignore_version']` (default: `false`): ignore kapacitor version pin
 
