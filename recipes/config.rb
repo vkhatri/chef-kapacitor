@@ -17,10 +17,6 @@
 # limitations under the License.
 #
 
-chef_gem 'toml' do
-  version node['kapacitor']['toml_gem_version']
-end
-
 require 'toml'
 
 [node['kapacitor']['data_dir'],

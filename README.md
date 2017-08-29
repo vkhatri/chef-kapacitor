@@ -53,6 +53,8 @@ https://github.com/vkhatri/chef-kapacitor
 
 * `default['kapacitor']['version']` (default: `1.3.2`): kapacitor version, default install latest
 
+* `default['kapacitor']['toml_gem_version']` (default: `~> 0.1.2`): toml gem version
+
 * `default['kapacitor']['ignore_version']` (default: `false`): ignore kapacitor version pin
 
 * `default['kapacitor']['setup_repository']` (default: `true`): setup influxdata repository
