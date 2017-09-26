@@ -26,6 +26,7 @@ when 'debian'
   apt_repository 'influxdb' do
     uri node['kapacitor']['apt']['uri']
     components node['kapacitor']['apt']['components']
+    arch 'amd64'
     key node['kapacitor']['apt']['key']
     distribution node['kapacitor']['apt']['distribution']
     action node['kapacitor']['apt']['action']
