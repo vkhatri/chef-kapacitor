@@ -95,7 +95,7 @@ module KapacitorCookbook
       tries = opts.fetch :tries
       exceptions = Array(opts.fetch(:exceptions))
 
-      return if tries == 0
+      return if tries.zero?
 
       begin
         yield

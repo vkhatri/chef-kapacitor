@@ -4,7 +4,7 @@
 
 property :id, String, name_property: true
 property :host, String, default: 'localhost'
-property :port, Fixnum, default: 9092
+property :port, Integer, default: 9092
 property :type, String
 property :dbrps, Array
 property :script, String

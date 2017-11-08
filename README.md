@@ -1,12 +1,10 @@
 kapacitor Cookbook
 ================
 
-[![Cookbook](http://img.shields.io/badge/cookbook-v0.0.1-green.svg)](https://github.com/vkhatri/chef-kapacitor)
-
-[![wercker status](https://app.wercker.com/status/4db502d59b112195391912b4679eee7d/m "wercker status")](https://app.wercker.com/project/bykey/4db502d59b112195391912b4679eee7d)
+[![Cookbook](https://img.shields.io/github/tag/vkhatri/chef-kapacitor.svg)](https://github.com/vkhatri/chef-kapacitor) [![Build Status](https://travis-ci.org/vkhatri/chef-kapacitor.svg?branch=master)](https://travis-ci.org/vkhatri/chef-kapacitor)
 
 
-This is a [Chef] cookbook to manage [InfluxDB] [Kapacitor].
+This is a [Chef] cookbook to manage [InfluxData] [Kapacitor].
 
 
 >> For Production environment, always prefer the [most recent release](https://supermarket.chef.io/cookbooks/kapacitor).
@@ -32,14 +30,14 @@ https://github.com/vkhatri/chef-kapacitor
 
 ## Supported OS
 
-This cookbook was tested on Amazon & Ubuntu Linux and expected to work on other RHEL platforms.
-
-
+- Amazon
+- CentOS
+- Ubuntu
 
 ## Cookbook Dependency
 
-None
-
+- apt
+- yum-plugin-versionlock
 
 ## Recipes
 
@@ -49,19 +47,17 @@ None
 
 - `kapacitor::config` - configure kapacitor
 
-- `kapacitor::inputs` - configure kapacitor inputs using node attribute `node['kapacitor']['inputs']`
-
-- `kapacitor::outputs` - configure kapacitor outputs using node attribute `node['kapacitor']['outputs']`
-
 - `kapacitor::service` - configure kapacitor service
-
-- `kapacitor::example` - examples recipe to configure default inputs/outputs using HWRP
-
 
 ## Core Attributes
 
+* `default['kapacitor']['version']` (default: `1.3.2`): kapacitor version, default install latest
 
-* `default['kapacitor']['version']` (default: `nil`): kapacitor version, default install latest
+* `default['kapacitor']['toml_gem_version']` (default: `~> 0.1.2`): toml gem version
+
+* `default['kapacitor']['ignore_version']` (default: `false`): ignore kapacitor version pin
+
+* `default['kapacitor']['setup_repository']` (default: `true`): setup influxdata repository
 
 * `default['kapacitor']['conf_dir']` (default: `/etc/kapacitor`): kapacitor toml configuration file directory
 
@@ -143,5 +139,5 @@ limitations under the License.
 
 [Chef]: https://www.chef.io/
 [Kapacitor]: https://docs.influxdata.com/kapacitor
-[InfluxDB]: https://influxdata.com/
+[InfluxData]: https://influxdata.com/
 [Contributors]: https://github.com/vkhatri/chef-kapacitor/graphs/contributors

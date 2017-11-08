@@ -1,4 +1,5 @@
 # Encoding: utf-8
+
 require 'spec_helper'
 
 describe port(9092) do

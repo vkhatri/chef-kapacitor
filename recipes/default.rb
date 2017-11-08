@@ -44,16 +44,12 @@ if node['kapacitor']['default_config_influxdb']
   ]
 end
 
-if Chef::Resource::ChefGem.method_defined?(:compile_time)
-  chef_gem 'toml-rb' do
-    compile_time true
-  end
-else
-  chef_gem 'toml-rb' do
-    action :nothing
-  end.run_action(:install)
+chef_gem 'toml' do
+  compile_time true
+  version node['kapacitor']['toml_gem_version']
 end
 
+include_recipe 'yum-plugin-versionlock::default' if %w[rhel amazon].include?(node['platform_family'])
 include_recipe 'kapacitor::install'
 include_recipe 'kapacitor::config'
 include_recipe 'kapacitor::service'
