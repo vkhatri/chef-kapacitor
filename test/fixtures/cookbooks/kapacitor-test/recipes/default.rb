@@ -16,8 +16,8 @@ end
 
 # Create a test hendler
 kapacitor_handler 'test_handler' do
-    id 'test_handler'
-    topic 'test'
-    actions [{'kind' => 'log', 'options' => { 'path' => '/tmp/alerts.log' } }]
-    action :create
+  id 'test_handler'
+  topic 'test'
+  actions [{ 'kind' => 'log', 'options' => { 'path' => '/tmp/alerts.log' } }]
+  action :create
 end

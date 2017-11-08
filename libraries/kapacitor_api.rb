@@ -48,7 +48,7 @@ module KapacitorCookbook
 
       handler = _do_request(options)
 
-      return if /unknown handler/.match(handler['error'])
+      return if handler['error'] == 'unknown handler'
       handler
     end
 
