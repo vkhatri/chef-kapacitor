@@ -40,6 +40,26 @@ module KapacitorCookbook
       _do_request(options, enable.to_json)
     end
 
+    # Fetch the json representation of the handler
+    # curl http://localhost:9092/kapacitor/v1preview/alerts/topics/<topic id>/handlers/<handler id>.
+    def get_handler(options, topic, handler_id)
+      options[:method] = 'Get'
+      options[:endpoint] = '/kapacitor/v1preview/alerts/topics/' + topic + '/handlers/' + handler_id
+
+      handler = _do_request(options)
+
+      return if /unknown handler/ =~ handler['error']
+      handler
+    end
+
+    # create a handler
+    def create_handler(options, topic, handler)
+      options[:method] = 'Post'
+      options[:endpoint] = '/kapacitor/v1preview/alerts/topics/' + topic + '/handlers'
+
+      _do_request(options, handler.to_json)
+    end
+
     private
 
     def _do_request(options, payload = nil)
